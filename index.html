@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F0VF2VEGKT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-F0VF2VEGKT');
+    </script>
     <title>3D Points Viewer</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="style.css">
@@ -27,22 +36,28 @@
       </div>
     </div>
     <div id="menu">
-      <p>x
-      <input type="text" id="vertex-append-x" value="0" size="10">
-      </p>
-      <p>y
-      <input type="text" id="vertex-append-y" value="0" size="10">
-      </p>
-      <p>z
-      <input type="text" id="vertex-append-z" value="0" size="10">
-      </p>
-      <button id="vertex-append-button">APPEND</button>
-      <br>
-      <button id="vertex-clear-button">CLEAR</button>
-      <br>
-      <button id="camera-shift-button">SHIFT</button>
-      <br>
-      <button id="show-arrow-button">SHOW ARROW</button>
+      <div id="menu1">
+        <p>x
+        <input type="text" id="vertex-append-x" value="0" size="10">
+        </p>
+        <p>y
+        <input type="text" id="vertex-append-y" value="0" size="10">
+        </p>
+        <p>z
+        <input type="text" id="vertex-append-z" value="0" size="10">
+        </p>
+        <button id="vertex-append-button">APPEND</button>
+        <br>
+        <button id="vertex-clear-button">CLEAR</button>
+        <br>
+        <button id="camera-shift-button">SHIFT</button>
+        <br>
+        <button id="show-arrow-button">SHOW ARROW</button>
+      </div>
+      <div id="menu2">
+        INPUT FILE
+        <input type="file" id="file-input" />
+      </div>
     </div>
     <div id="text">
       <h2>説明</h2>
