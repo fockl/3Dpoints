@@ -242,7 +242,7 @@ function input_file(evt){
   const file = input.files[0];
   const reader = new FileReader();
   reader.onload = () => {
-    clear();
+    clear(true);
     let str = reader.result;
     console.log(str);
     if(str.length==0){
