@@ -2,6 +2,7 @@
 
 // ページの読み込みを待つ
 window.addEventListener('load', init);
+window.addEventListener('resize', resize);
 
 let scene, renderer, camera, controls;
 let arrow_visibility = false;
@@ -34,8 +35,9 @@ function initRequestAnimationFrame(){
 //{{{ init
 function init() {
   // サイズを指定
-  const width = 960;
-  const height = 540;
+  console.log(document.querySelector('canvas'));
+  let width = document.querySelector('canvas').parentNode.clientWidth*0.95;
+  let height = width*0.8;
   // レンダラーを作成
   renderer = new THREE.WebGLRenderer({
           canvas: document.querySelector('canvas')
@@ -49,7 +51,7 @@ function init() {
 
   // カメラを作成
   camera = new THREE.PerspectiveCamera(45, width / height);
-  camera.position.set(1, 1, 1);
+  camera.position.set(1.5, 1.5, 1.5);
 
   controls = new THREE.TrackballControls(camera, document.querySelector('canvas'));
   controls.update();
@@ -60,6 +62,21 @@ function init() {
 
   initRequestAnimationFrame();
   tick();
+}
+//}}}
+
+//{{{ resize
+function resize(){
+  //https://ics.media/tutorial-three/renderer_resize/
+
+  let width = document.querySelector('canvas').parentNode.clientWidth*0.95;
+  let height = width*0.8;
+
+  renderer.setPixelRatio(window.devicePixelRatio)
+  renderer.setSize(width, height);
+
+  camera.aspect = width/height;
+  camera.updateProjectionMatrix();
 }
 //}}}
 
@@ -184,9 +201,9 @@ function shift(){
   controls.target.x = avex;
   controls.target.y = avey;
   controls.target.z = avez;
-  camera.position.x = avex + max_len;
-  camera.position.y = avey + max_len;
-  camera.position.z = avez + max_len;
+  camera.position.x = avex + max_len*1.5;
+  camera.position.y = avey + max_len*1.5;
+  camera.position.z = avez + max_len*1.5;
   camera.up.x = 0;
   camera.up.y = 1;
   camera.up.z = 0;
