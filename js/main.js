@@ -241,7 +241,7 @@ function input_file(evt){
   }
   const file = input.files[0];
   const reader = new FileReader();
-  reader.onload = () => {
+  reader.onload = async function(){
     clear(true);
     let str = reader.result;
     console.log(str);
@@ -255,6 +255,8 @@ function input_file(evt){
         strs1 = strs1[0].split('\r');
       }
     }
+    function tmp(){
+    positions = [];
     for(let i=0; i<strs1.length; ++i){
       if(strs1[i].length==0){
         continue;
@@ -274,8 +276,10 @@ function input_file(evt){
       }
       positions.push([x, y, z]);
     }
+    }
+    await tmp();
     console.log(positions);
-    apply();
+    apply(false);
     return;
   };
   reader.readAsText(file);
@@ -283,3 +287,7 @@ function input_file(evt){
 }
 
 document.getElementById("file-input").addEventListener('change', input_file);
+document.getElementById("file-input").addEventListener('click', () => {
+  document.getElementById("file-input").value = null;
+  return;
+});
