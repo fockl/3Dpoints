@@ -1,0 +1,17 @@
+#canvas-div{
+  display: inline-block;
+  vertical-align: top;
+  background: #cde4ff;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  border: solid 3px #000000;
+}
+
+#menu{
+  display: inline-block;
+  vertical-align: top;
+  background: #ffcde4;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  border: solid 3px #000000;
+}

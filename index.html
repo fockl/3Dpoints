@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>3D Points viewer</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r120/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r106/examples/js/controls/TrackballControls.js"></script>
+  </head>
+  <body>
+    <div id="title">
+      <h1>3次元空間に頂点を表示するだけのページ</h1>
+    </div>
+    <div id="canvas-div">
+      <canvas id="canvas">
+      </canvas>
+      <div id="legend">
+        <span style="color:red;">X</span>
+        <span style="color:green;">Y</span>
+        <span style="color:blue;">Z</span>
+      </div>
+    </div>
+    <div id="menu">
+      <p>x
+      <input type="text" id="vertex-append-x" value="0">
+      </p>
+      <p>y
+      <input type="text" id="vertex-append-y" value="0">
+      </p>
+      <p>z
+      <input type="text" id="vertex-append-z" value="0">
+      </p>
+      <button id="vertex-append-button">APPEND</button>
+      <br>
+      <button id="vertex-clear-button">CLEAR</button>
+      <br>
+      <button id="camera-shift-button">SHIFT</button>
+      <br>
+      <button id="show-arrow-button">SHOW ARROW</button>
+    </div>
+    <div id="text">
+      <h2>説明</h2>
+      <p>
+      3次元空間に頂点を表示するだけのページだよ
+      </p>
+      <p>
+      右側の枠にx, y, zの値を入れるてAPPENDボタンを押すと左側に頂点が描画されるよ
+      </p>
+      <p>
+      左側の画面はマウスのドラッグとホイールで操作できるよ
+      </p>
+      <p>
+      右側のCLEARボタンを押すと頂点が全部消えるよ
+      </p>
+      <p>
+      右側のSHIFTボタンを押すと、カメラが頂点の中心に移動するよ
+      </p>
+      <p>
+      右側のSHOW ARROWボタンを押すと頂点を入れた順番に結ぶ矢印が表示されるよ
+      </p>
+    </div>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
