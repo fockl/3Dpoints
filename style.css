@@ -16,8 +16,18 @@
 #menu{
   display: inline-block;
   vertical-align: top;
-  background: #ffcde4;
   width: 20%;
+}
+#menu1{
+  background: #ffcde4;
+  height: auto;
+  /*padding: 0.5em 1em;
+  margin: 2em 0;*/
+  border: solid 3px #000000;
+  text-align:center;
+}
+#menu2{
+  background: #ffcde4;
   height: auto;
   /*padding: 0.5em 1em;
   margin: 2em 0;*/

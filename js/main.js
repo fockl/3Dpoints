@@ -233,3 +233,53 @@ document.getElementById("show-arrow-button").addEventListener('click', () => {
   }
   apply(false);
 });
+
+function input_file(evt){
+  let input = evt.target;
+  if(input.files.length == 0){
+    console.log("No file selected");
+  }
+  const file = input.files[0];
+  const reader = new FileReader();
+  reader.onload = () => {
+    clear();
+    let str = reader.result;
+    console.log(str);
+    if(str.length==0){
+      return;
+    }
+    let strs1 = str.split('\r\n');
+    if(strs1.length==1){
+      strs1 = strs1[0].split('\n');
+      if(strs1.length==1){
+        strs1 = strs1[0].split('\r');
+      }
+    }
+    for(let i=0; i<strs1.length; ++i){
+      if(strs1[i].length==0){
+        continue;
+      }
+      let strs2 = strs1[i].split(',');
+      if(strs2.length==0){
+        continue;
+      }
+      let x = Number(strs2[0]);
+      let y = 0;
+      if(strs2.length>1){
+        y = Number(strs2[1]);
+      }
+      let z = 0;
+      if(strs2.length>2){
+        z = Number(strs2[2]);
+      }
+      positions.push([x, y, z]);
+    }
+    console.log(positions);
+    apply();
+    return;
+  };
+  reader.readAsText(file);
+  return;
+}
+
+document.getElementById("file-input").addEventListener('change', input_file);
