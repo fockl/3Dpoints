@@ -149,6 +149,7 @@ function clear(flag){
     }else{
       break;
     }
+    i++;
   }
 
   if(flag==true){
